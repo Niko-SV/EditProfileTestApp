@@ -9,7 +9,7 @@ import Foundation
 
 struct AppConstants {
     
-    static let profileCoreDataModelName = "Profile"
+    static let profileCoreDataModelName = "ProfileCoreDataModel"
     
     static let genderOptions = ["Male", "Female", "Prefer not to say"]
     
@@ -37,4 +37,6 @@ struct AppConstants {
     
     static let imageSize = 2048
     static let imageSide = 100
+    
+    static let uiImageTransformerName = "UIImageTransformer"
 }

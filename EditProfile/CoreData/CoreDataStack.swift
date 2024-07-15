@@ -17,7 +17,7 @@ class CoreDataStack {
         
         ValueTransformer.setValueTransformer(
             UIImageTransformer(),
-            forName: NSValueTransformerName("UIImageTransformer")
+            forName: NSValueTransformerName(AppConstants.uiImageTransformerName)
         )
         
         persistentContainer = NSPersistentContainer(name: AppConstants.profileCoreDataModelName)

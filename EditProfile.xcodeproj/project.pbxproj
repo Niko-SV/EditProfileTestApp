@@ -17,7 +17,7 @@
 		02C1AEEC2C42D46900AA36BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1AEEB2C42D46900AA36BD /* SceneDelegate.swift */; };
 		02C1AEEE2C42D46900AA36BD /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1AEED2C42D46900AA36BD /* MainViewController.swift */; };
 		02C1AEF12C42D46900AA36BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1AEEF2C42D46900AA36BD /* Main.storyboard */; };
-		02C1AEF42C42D46900AA36BD /* Profile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02C1AEF22C42D46900AA36BD /* Profile.xcdatamodeld */; };
+		02C1AEF42C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02C1AEF22C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld */; };
 		02C1AEF62C42D46A00AA36BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02C1AEF52C42D46A00AA36BD /* Assets.xcassets */; };
 		02C1AEF92C42D46A00AA36BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02C1AEF72C42D46A00AA36BD /* LaunchScreen.storyboard */; };
 		02C1AF012C42EC8600AA36BD /* ProfileCoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C1AF002C42EC8600AA36BD /* ProfileCoreDataModel.swift */; };
@@ -123,7 +123,7 @@
 			children = (
 				02C1AF022C42EE5E00AA36BD /* CoreDataStack.swift */,
 				02C1AF002C42EC8600AA36BD /* ProfileCoreDataModel.swift */,
-				02C1AEF22C42D46900AA36BD /* Profile.xcdatamodeld */,
+				02C1AEF22C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 				02C1AEEC2C42D46900AA36BD /* SceneDelegate.swift in Sources */,
 				025C8DD32C4573C20097EBC2 /* AgeValidator.swift in Sources */,
 				02ED3B282C4546E700335B15 /* UserValidationError.swift in Sources */,
-				02C1AEF42C42D46900AA36BD /* Profile.xcdatamodeld in Sources */,
+				02C1AEF42C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld in Sources */,
 				02ED3B252C45469100335B15 /* UserFieldsValidator.swift in Sources */,
 				02EF21D32C459DC400700AB2 /* BirthdayViewModel.swift in Sources */,
 				02C1AF0A2C430FCA00AA36BD /* UIVIew.swift in Sources */,
@@ -533,13 +533,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		02C1AEF22C42D46900AA36BD /* Profile.xcdatamodeld */ = {
+		02C1AEF22C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				02C1AEF32C42D46900AA36BD /* EditProfile.xcdatamodel */,
 			);
 			currentVersion = 02C1AEF32C42D46900AA36BD /* EditProfile.xcdatamodel */;
-			path = Profile.xcdatamodeld;
+			path = ProfileCoreDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

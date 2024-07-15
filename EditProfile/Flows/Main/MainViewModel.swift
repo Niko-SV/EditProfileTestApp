@@ -18,9 +18,9 @@ class MainViewModel {
     var model: ProfileFormDataModel? = nil
     
     func fetchProfile(completion: @escaping (ProfileFormDataModel) -> Void) {
-        let request: NSFetchRequest<Profile> = NSFetchRequest(entityName: AppConstants.profileCoreDataModelName)
+        let request: NSFetchRequest<ProfileCoreDataModel> = NSFetchRequest(entityName: AppConstants.profileCoreDataModelName)
         do {
-            let profiles: [Profile] = try context.fetch(request)
+            let profiles: [ProfileCoreDataModel] = try context.fetch(request)
             if let profile = profiles.first {
                 let model = ProfileFormDataModel(entity: profile)
                 self.model = model
@@ -77,17 +77,17 @@ class MainViewModel {
     }
     
     private func fetchOrCreateProfile(model: ProfileFormDataModel, completion: @escaping (Result<ProfileFormDataModel, Error>)  -> Void) {
-        let fetchRequest: NSFetchRequest<Profile> = Profile.fetchRequest()
+        let fetchRequest: NSFetchRequest<ProfileCoreDataModel> = ProfileCoreDataModel.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "mail == %@", model.email)
         
         do {
             let profiles = try self.context.fetch(fetchRequest)
             
-            let profile: Profile
+            let profile: ProfileCoreDataModel
             if let existingProfile = profiles.first {
                 profile = existingProfile
             } else {
-                profile = Profile(context: self.context)
+                profile = ProfileCoreDataModel(context: self.context)
             }
             profile.update(with: model)
             try self.context.save()

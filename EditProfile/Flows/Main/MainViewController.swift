@@ -280,7 +280,7 @@ extension MainViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            guard let imageData = pickedImage.jpegData(compressionQuality: 1.0) else { return }
+            guard let imageData = pickedImage.jpegData(compressionQuality: 0.5) else { return }
             
             let imageSize = imageData.count / 1024
             if imageSize > AppConstants.imageSize {

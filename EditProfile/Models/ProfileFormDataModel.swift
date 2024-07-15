@@ -25,7 +25,7 @@ struct ProfileFormDataModel {
 }
 
 extension ProfileFormDataModel {
-    init(entity: Profile) {
+    init(entity: ProfileCoreDataModel) {
         self.image = entity.photo
         self.fullName = entity.name
         self.birthday = entity.birthday

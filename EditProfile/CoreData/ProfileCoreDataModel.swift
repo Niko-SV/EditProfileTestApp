@@ -9,13 +9,13 @@ import Foundation
 import CoreData
 import UIKit
 
-@objc(Profile)
-class Profile: NSManagedObject {}
+@objc(ProfileCoreDataModel)
+class ProfileCoreDataModel: NSManagedObject {}
 
-extension Profile {
+extension ProfileCoreDataModel {
     
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Profile> {
-        return NSFetchRequest<Profile>(entityName: AppConstants.profileCoreDataModelName)
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<ProfileCoreDataModel> {
+        return NSFetchRequest<ProfileCoreDataModel>(entityName: AppConstants.profileCoreDataModelName)
     }
 
     @NSManaged public var birthday: Date
@@ -27,9 +27,9 @@ extension Profile {
 
 }
 
-extension Profile : Identifiable {}
+extension ProfileCoreDataModel : Identifiable {}
 
-extension Profile {
+extension ProfileCoreDataModel {
     func update(with model: ProfileFormDataModel) {
         self.photo = model.image
         self.mail = model.email
