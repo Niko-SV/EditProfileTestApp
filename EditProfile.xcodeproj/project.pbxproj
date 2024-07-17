@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0252ED6F2C480DBF00E63A1A /* BirthdayViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252ED6E2C480DBF00E63A1A /* BirthdayViewControllerFactory.swift */; };
+		0252ED712C480F7500E63A1A /* UIStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252ED702C480F7500E63A1A /* UIStoryboard.swift */; };
+		0252ED732C4810B200E63A1A /* GenderViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252ED722C4810B200E63A1A /* GenderViewControllerFactory.swift */; };
 		025C8DD32C4573C20097EBC2 /* AgeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C8DD22C4573C20097EBC2 /* AgeValidator.swift */; };
 		025C8DD82C4576750097EBC2 /* BaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C8DD72C4576750097EBC2 /* BaseAlert.swift */; };
 		02A44A262C4433C300115F87 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A44A252C4433C300115F87 /* GenderViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0252ED6E2C480DBF00E63A1A /* BirthdayViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewControllerFactory.swift; sourceTree = "<group>"; };
+		0252ED702C480F7500E63A1A /* UIStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboard.swift; sourceTree = "<group>"; };
+		0252ED722C4810B200E63A1A /* GenderViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewControllerFactory.swift; sourceTree = "<group>"; };
 		025C8DD22C4573C20097EBC2 /* AgeValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeValidator.swift; sourceTree = "<group>"; };
 		025C8DD72C4576750097EBC2 /* BaseAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAlert.swift; sourceTree = "<group>"; };
 		02A44A252C4433C300115F87 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				02A44A252C4433C300115F87 /* GenderViewController.swift */,
+				0252ED722C4810B200E63A1A /* GenderViewControllerFactory.swift */,
 				02EF21CE2C4598DF00700AB2 /* Gender.storyboard */,
 			);
 			path = Gender;
@@ -100,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				02A44A282C4438CD00115F87 /* BirthdayViewController.swift */,
+				0252ED6E2C480DBF00E63A1A /* BirthdayViewControllerFactory.swift */,
 				02EF21D22C459DC400700AB2 /* BirthdayViewModel.swift */,
 				02EF21D02C459CE400700AB2 /* Birthday.storyboard */,
 			);
@@ -181,6 +189,7 @@
 				02C1AF092C430FCA00AA36BD /* UIVIew.swift */,
 				02ED3B292C45472B00335B15 /* String.swift */,
 				02ED3B2E2C45486700335B15 /* Date.swift */,
+				0252ED702C480F7500E63A1A /* UIStoryboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -284,6 +293,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A44A292C4438CD00115F87 /* BirthdayViewController.swift in Sources */,
+				0252ED732C4810B200E63A1A /* GenderViewControllerFactory.swift in Sources */,
+				0252ED6F2C480DBF00E63A1A /* BirthdayViewControllerFactory.swift in Sources */,
 				02C1AEEE2C42D46900AA36BD /* MainViewController.swift in Sources */,
 				02EF21D52C45A05B00700AB2 /* UserAgeValidationError.swift in Sources */,
 				02A44A262C4433C300115F87 /* GenderViewController.swift in Sources */,
@@ -294,6 +305,7 @@
 				02C1AEEC2C42D46900AA36BD /* SceneDelegate.swift in Sources */,
 				025C8DD32C4573C20097EBC2 /* AgeValidator.swift in Sources */,
 				02ED3B282C4546E700335B15 /* UserValidationError.swift in Sources */,
+				0252ED712C480F7500E63A1A /* UIStoryboard.swift in Sources */,
 				02C1AEF42C42D46900AA36BD /* ProfileCoreDataModel.xcdatamodeld in Sources */,
 				02ED3B252C45469100335B15 /* UserFieldsValidator.swift in Sources */,
 				02EF21D32C459DC400700AB2 /* BirthdayViewModel.swift in Sources */,

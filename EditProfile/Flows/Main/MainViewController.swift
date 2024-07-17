@@ -71,25 +71,15 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
     @IBAction func genderButtonTapped(_ sender: Any) {
         view.endEditing(true)
         genderView.clearErrorTextField()
-        let storyboard = UIStoryboard(name: "Gender", bundle: nil)
-        if let modalVC = storyboard.instantiateViewController(withIdentifier: "GenderViewController") as? GenderViewController {
-            modalVC.delegate = self
-            present(modalVC, animated: true, completion: nil)
-        } else {
-            print("GenderViewController could not be instantiated from storyboard.")
-        }
+        let controller = GenderViewControllerFactory.instantiate()
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func birthdayButtonTapped(_ sender: Any) {
         view.endEditing(true)
         birthdayView.clearErrorTextField()
-        let storyboard = UIStoryboard(name: "Birthday", bundle: nil)
-        if let modalVC = storyboard.instantiateViewController(withIdentifier: "BirthdayViewController") as? BirthdayViewController {
-            modalVC.delegate = self
-            present(modalVC, animated: true, completion: nil)
-        } else {
-            print("GenderViewController could not be instantiated from storyboard.")
-        }
+        let controller = BirthdayViewControllerFactory.instantiate()
+        present(controller, animated: true, completion: nil)
     }
     
     @IBAction func pickImageButtonTapped(_ sender: Any) {
@@ -132,6 +122,11 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
             switch result {
             case .success(let model):
                 self?.onSaveProfileSuccess(model: model)
+                let alert = BaseAlert.createBaseAlert(
+                    title: AppConstants.savedProfileAlertTitleText,
+                    message: AppConstants.savedProfileAlertMessageText,
+                    actionTitle: AppConstants.alertOkText)
+                self?.present(alert, animated: true, completion: nil)
             case .failure(let error):
                 self?.onSaveProfileError(error: error)
             }
@@ -205,7 +200,10 @@ extension MainViewController: UITextFieldDelegate {
     }
     
     
-    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String) -> Bool {
         if let parentView = textField.superview {
             parentView.clearErrorTextField()
         }
@@ -217,8 +215,17 @@ extension MainViewController: UITextFieldDelegate {
     }
     
     func addKeyboardObservers() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow(_:)),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.addObserver(
+            self, 
+            selector: #selector(keyboardWillHide(_:)),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false
@@ -226,8 +233,15 @@ extension MainViewController: UITextFieldDelegate {
     }
     
     func removeKeyboardObservers() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil)
+        
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
         
         view.gestureRecognizers?.forEach {
             if $0 is UITapGestureRecognizer {
@@ -278,7 +292,9 @@ extension MainViewController: UIImagePickerControllerDelegate {
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             guard let imageData = pickedImage.jpegData(compressionQuality: 0.5) else { return }
             

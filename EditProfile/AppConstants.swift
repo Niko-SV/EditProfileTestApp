@@ -29,6 +29,9 @@ struct AppConstants {
     static let ageValidationAlertTitleText = "Age Validation"
     static let ageValidationAlertErrorText = "You must be 18 years or older to proceed."
     
+    static let savedProfileAlertTitleText = "Profile saved"
+    static let savedProfileAlertMessageText = "Your profile was saved. Thanks."
+    
     static let photoLibraryAlertErrorText = "Photo Library not available"
     static let cameraAlertErrorText = "Camera not available"
     
