@@ -21,7 +21,7 @@ class MainViewModel {
         let request: NSFetchRequest<ProfileCoreDataModel> = NSFetchRequest(entityName: AppConstants.profileCoreDataModelName)
         do {
             let profiles: [ProfileCoreDataModel] = try context.fetch(request)
-            if let profile = profiles.first {
+            if let profile = profiles.last {
                 let model = ProfileFormDataModel(entity: profile)
                 self.model = model
                 completion(model)

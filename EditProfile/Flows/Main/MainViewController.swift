@@ -72,6 +72,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
         view.endEditing(true)
         genderView.clearErrorTextField()
         let controller = GenderViewControllerFactory.instantiate()
+        controller.delegate = self
         present(controller, animated: true, completion: nil)
     }
     
@@ -79,6 +80,7 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
         view.endEditing(true)
         birthdayView.clearErrorTextField()
         let controller = BirthdayViewControllerFactory.instantiate()
+        controller.delegate = self
         present(controller, animated: true, completion: nil)
     }
     
