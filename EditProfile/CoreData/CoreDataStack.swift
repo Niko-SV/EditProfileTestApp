@@ -10,10 +10,10 @@ import CoreData
 
 class CoreDataStack {
     
-    let persistentContainer: NSPersistentContainer
+    var persistentContainer: NSPersistentContainer
     static let shared: CoreDataStack = CoreDataStack()
     
-    private init() {
+    init() {
         
         ValueTransformer.setValueTransformer(
             UIImageTransformer(),

@@ -48,15 +48,19 @@ class MainViewController: UIViewController, UINavigationControllerDelegate {
         emailTextField.delegate = self
         
         viewModel.fetchProfile(completion: { [weak self] profile in
-            self?.pickedImage = profile.image
-            self?.imageView.image = profile.image
-            self?.nameLabel.text = profile.fullName
-            self?.nicknameLabel.text = profile.getNickname()
-            self?.fullNameTextField.text = profile.fullName
-            self?.birthdayTextField.text = profile.getBirthdayLabel()
-            self?.genderTextField.text = profile.gender
-            self?.phoneNumberTextField.text = profile.phoneNumber
-            self?.emailTextField.text = profile.email
+            self?.pickedImage = profile?.image
+            if profile?.image == nil {
+                self?.imageView.image = UIImage(systemName: "person.circle")
+            } else {
+                self?.imageView.image = profile?.image
+            }
+            self?.nameLabel.text = profile?.fullName
+            self?.nicknameLabel.text = profile?.getNickname()
+            self?.fullNameTextField.text = profile?.fullName
+            self?.birthdayTextField.text = profile?.getBirthdayLabel()
+            self?.genderTextField.text = profile?.gender
+            self?.phoneNumberTextField.text = profile?.phoneNumber
+            self?.emailTextField.text = profile?.email
         })
         
         view.addGestureRecognizer(

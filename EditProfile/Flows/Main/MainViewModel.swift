@@ -11,13 +11,17 @@ import CoreData
 
 class MainViewModel {
     
-    private var context = CoreDataStack.shared.mainContext
-    
-    private let userFielsValidator = UserFieldsValidator()
+    private var context: NSManagedObjectContext
+    private let userFieldsValidator: UserFieldsValidator
     
     var model: ProfileFormDataModel? = nil
     
-    func fetchProfile(completion: @escaping (ProfileFormDataModel) -> Void) {
+    init(context: NSManagedObjectContext = CoreDataStack.shared.mainContext, userFieldsValidator: UserFieldsValidator = UserFieldsValidator()) {
+        self.context = context
+        self.userFieldsValidator = userFieldsValidator
+    }
+    
+    func fetchProfile(completion: @escaping (ProfileFormDataModel?) -> Void) {
         let request: NSFetchRequest<ProfileCoreDataModel> = NSFetchRequest(entityName: AppConstants.profileCoreDataModelName)
         do {
             let profiles: [ProfileCoreDataModel] = try context.fetch(request)
@@ -25,6 +29,8 @@ class MainViewModel {
                 let model = ProfileFormDataModel(entity: profile)
                 self.model = model
                 completion(model)
+            } else {
+                completion(nil)
             }
         } catch {
             print(error)
@@ -40,7 +46,7 @@ class MainViewModel {
         phoneNumber: String?,
         completion: @escaping (Result<ProfileFormDataModel, Error>) -> Void
     ) {
-        let errors = userFielsValidator.validate(
+        let errors = userFieldsValidator.validate(
             image: image,
             fullName: fullName,
             birthday: birthday,
