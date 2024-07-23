@@ -9,9 +9,13 @@ import UIKit
 
 class BirthdayViewModel {
     
-    private var ageValidator = AgeValidator()
+    private var ageValidator: AgeValidator
     
-    func onSelecrBirthdayDate(selectedDate: Date?, completion: @escaping (Result<Date, Error>) -> Void) {
+    init(ageValidator: AgeValidator = AgeValidator()) {
+        self.ageValidator = ageValidator
+    }
+    
+    func onSelectBirthdayDate(selectedDate: Date?, completion: @escaping (Result<Date, Error>) -> Void) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
       

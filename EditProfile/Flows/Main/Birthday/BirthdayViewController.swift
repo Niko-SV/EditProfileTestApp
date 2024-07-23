@@ -22,7 +22,7 @@ class BirthdayViewController: UIViewController {
 
     @IBAction func saveButtonTapped(_ sender: Any) {
         let selectedDate = datePicker.date
-        viewModel.onSelecrBirthdayDate(selectedDate: selectedDate, completion: { result in
+        viewModel.onSelectBirthdayDate(selectedDate: selectedDate, completion: { result in
             switch result {
             case .success(let date):
                 self.delegate?.didSelectDate(date: date)

@@ -7,10 +7,9 @@
 
 import UIKit
 
-
 class UserFieldsValidator {
     
-    func validate(
+    open func validate(
         image: UIImage?,
         fullName: String?,
         birthday: String?,
@@ -22,7 +21,6 @@ class UserFieldsValidator {
         var validationFields: Array<UserValidationError.Field> = []
         
         if image == nil {
-            print("ERROR")
             validationFields.append(.image)
         }
         if fullName == nil
